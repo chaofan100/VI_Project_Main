@@ -56,6 +56,7 @@ class LoginDlg(QMainWindow, Ui_MainWindow):
         __author__ = 'Lu chao'
         __revised__ = 20171012
         """
+        self.progressBar.setValue(0)
         self.statusbar.showMessage('测试数据导入中……')
         filepath = QFileDialog.getExistingDirectory(self)
         filepath_full = filepath + '/*.txt'
@@ -63,6 +64,7 @@ class LoginDlg(QMainWindow, Ui_MainWindow):
                                                 self.filepath_Driver, Process_type='input_data')
         self.main_process_thread.Message_Signal.connect(self.thread_message)  # 传递参数不用写出来，对应好接口函数即可
         self.main_process_thread.Message_Finish.connect(self.thread_message)
+        self.main_process_thread.Message_Process.connect(self.process_bar_show)
         self.main_process_thread.start()
 
     def cal_data(self):
@@ -76,6 +78,7 @@ class LoginDlg(QMainWindow, Ui_MainWindow):
         __author__ = 'Lu chao'
         __revised__ = 20171012
         """
+        self.progressBar.setValue(0)
         self.statusbar.showMessage('计算中……')
         self.main_process_thread = Main_process(self.filepath_fulldata, Save_name=self.plainTextEdit_4.toPlainText(),
                                                 Process_type='cal_data')
@@ -94,6 +97,10 @@ class LoginDlg(QMainWindow, Ui_MainWindow):
         """
         self.statusbar.showMessage(mes_str)
         self.filepath_fulldata = './' + mes_str[6::]
+
+    def process_bar_show(self, value):
+        self.progressBar.setValue(value)
+
 
     def datatableview_show(self, data_list):
         """
@@ -207,6 +214,7 @@ class Main_process(QtCore.QThread):  # 务必不要继承主窗口，并在线�
 
     Message_Signal = QtCore.pyqtSignal(str)
     Message_Finish = QtCore.pyqtSignal(str)
+    Message_Process = QtCore.pyqtSignal(int)
     Message_Data = QtCore.pyqtSignal(list)
 
     def __init__(self, filepath, DBC_path='', Car_path='', Driver_path='', Save_name='', Process_type='input_data'):
@@ -237,10 +245,8 @@ class Main_process(QtCore.QThread):  # 务必不要继承主窗口，并在线�
             while k:
                 try:
                     mes = message.__next__()  # generator [消息,总任务数]
-                    # self.progressBar.setValue(int(k / mes[1]) * 100)
-                    # self.progressBar.show()
-                    # self.statusbar.showMessage('测试数据导入' + str(k))
                     self.Message_Signal.emit("测试数据 " + mes[0][0] + "导入中……")
+                    self.Message_Process.emit(int(k / mes[1] * 100))
                     k = k + 1
                 except:
                     self.Message_Signal.emit("导入完成……")
