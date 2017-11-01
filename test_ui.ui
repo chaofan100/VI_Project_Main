@@ -398,7 +398,9 @@
     <property name="title">
      <string>绘图 (Ploting)</string>
     </property>
-    <addaction name="menu_PlotData"/>
+    <addaction name="menu_Engine_Working_Dist"/>
+    <addaction name="menu_Shifting_Strategy"/>
+    <addaction name="menu_Speed_Dist"/>
    </widget>
    <widget class="QMenu" name="menu_2">
     <property name="title">
@@ -434,9 +436,9 @@
     <string>test2</string>
    </property>
   </action>
-  <action name="menu_PlotData">
+  <action name="menu_Engine_Working_Dist">
    <property name="text">
-    <string>绘制轨迹曲线 Ploting Data</string>
+    <string>发动机工况点分布 Engine Work Point Dist.</string>
    </property>
   </action>
   <action name="menu_InputData">
@@ -462,6 +464,16 @@
   <action name="menu_ContactUs">
    <property name="text">
     <string>联系作者 Contact Us!</string>
+   </property>
+  </action>
+  <action name="menu_Shifting_Strategy">
+   <property name="text">
+    <string>换挡策略分布 Shifting Strategy Dist.</string>
+   </property>
+  </action>
+  <action name="menu_Speed_Dist">
+   <property name="text">
+    <string>速度分布 Speed Dist.</string>
    </property>
   </action>
  </widget>

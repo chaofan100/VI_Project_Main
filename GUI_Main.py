@@ -8,13 +8,22 @@ Author: SAIC VP Team
 >
 """
 
-
 from PyQt5.QtWidgets import *
 from PyQt5 import QtCore, QtGui, QtWidgets
 from test_ui import Ui_MainWindow  # 界面与逻辑分离
 from Calculation_Functions import *  # 算法逻辑
 import sys
 import warnings
+import ctypes
+
+try:
+    temp1 = ctypes.windll.LoadLibrary('DLL\\Qt5Core.dll')
+    temp2 = ctypes.windll.LoadLibrary('DLL\\Qt5Gui.dll')
+    temp3 = ctypes.windll.LoadLibrary('DLL\\Qt5Widgets.dll')
+    temp4 = ctypes.windll.LoadLibrary('DLL\\msvcp140.dll')
+    temp5 = ctypes.windll.LoadLibrary('DLL\\Qt5PrintSupport.dll')
+except:
+    pass
 
 warnings.filterwarnings("ignore")
 
@@ -101,7 +110,6 @@ class LoginDlg(QMainWindow, Ui_MainWindow):
     def process_bar_show(self, value):
         self.progressBar.setValue(value)
 
-
     def datatableview_show(self, data_list):
         """
         Function of showing calculation results in data_table
@@ -139,8 +147,9 @@ class LoginDlg(QMainWindow, Ui_MainWindow):
         Time = self.model.data(self.model.index(Current_index.row(), 2))
         self.scene = QtWidgets.QGraphicsScene()
         try:
-            self.routine_pic = QtGui.QPixmap('./RoutinePic/AS24_'+str(int(float(Dri_ID)))+'_'+str(int(float(Date))) +
-                                             '_'+str(int(float(Time)))+'.png')  # 车型问题没定义好   待解决 2017/9/30
+            self.routine_pic = QtGui.QPixmap(
+                './RoutinePic/AS24_' + str(int(float(Dri_ID))) + '_' + str(int(float(Date))) +
+                '_' + str(int(float(Time))) + '.png')  # 车型问题没定义好   待解决 2017/9/30
             self.scene.addPixmap(self.routine_pic)
             self.graphicsView.setScene(self.scene)
         except:
