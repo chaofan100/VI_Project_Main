@@ -8,13 +8,22 @@ Author: SAIC VP Team
 >
 """
 
-
 from PyQt5.QtWidgets import *
 from PyQt5 import QtCore, QtGui, QtWidgets
 from test_ui import Ui_MainWindow  # 界面与逻辑分离
 from Calculation_Functions import *  # 算法逻辑
 import sys
 import warnings
+import ctypes
+
+try:
+    temp1 = ctypes.windll.LoadLibrary('DLL\\Qt5Core.dll')
+    temp2 = ctypes.windll.LoadLibrary('DLL\\Qt5Gui.dll')
+    temp3 = ctypes.windll.LoadLibrary('DLL\\Qt5Widgets.dll')
+    temp4 = ctypes.windll.LoadLibrary('DLL\\msvcp140.dll')
+    temp5 = ctypes.windll.LoadLibrary('DLL\\Qt5PrintSupport.dll')
+except:
+    pass
 
 warnings.filterwarnings("ignore")
 
@@ -43,7 +52,8 @@ class LoginDlg(QMainWindow, Ui_MainWindow):
         self.filepath_DBC = './DBC_index.csv'  # 默认值
         self.filepath_Car = './Car_index.csv'
         self.filepath_Driver = './Driver_index.csv'
-
+        pass
+        pass
         # -------------------------------- 回调函数------------------------------------------
 
     def open_data(self):
@@ -56,6 +66,7 @@ class LoginDlg(QMainWindow, Ui_MainWindow):
         __author__ = 'Lu chao'
         __revised__ = 20171012
         """
+        self.progressBar.setValue(0)
         self.statusbar.showMessage('测试数据导入中……')
         filepath = QFileDialog.getExistingDirectory(self)
         filepath_full = filepath + '/*.txt'
@@ -63,6 +74,7 @@ class LoginDlg(QMainWindow, Ui_MainWindow):
                                                 self.filepath_Driver, Process_type='input_data')
         self.main_process_thread.Message_Signal.connect(self.thread_message)  # 传递参数不用写出来，对应好接口函数即可
         self.main_process_thread.Message_Finish.connect(self.thread_message)
+        self.main_process_thread.Message_Process.connect(self.process_bar_show)
         self.main_process_thread.start()
 
     def cal_data(self):
@@ -76,6 +88,7 @@ class LoginDlg(QMainWindow, Ui_MainWindow):
         __author__ = 'Lu chao'
         __revised__ = 20171012
         """
+        self.progressBar.setValue(0)
         self.statusbar.showMessage('计算中……')
         self.main_process_thread = Main_process(self.filepath_fulldata, Save_name=self.plainTextEdit_4.toPlainText(),
                                                 Process_type='cal_data')
@@ -94,6 +107,9 @@ class LoginDlg(QMainWindow, Ui_MainWindow):
         """
         self.statusbar.showMessage(mes_str)
         self.filepath_fulldata = './' + mes_str[6::]
+
+    def process_bar_show(self, value):
+        self.progressBar.setValue(value)
 
     def datatableview_show(self, data_list):
         """
@@ -132,8 +148,9 @@ class LoginDlg(QMainWindow, Ui_MainWindow):
         Time = self.model.data(self.model.index(Current_index.row(), 2))
         self.scene = QtWidgets.QGraphicsScene()
         try:
-            self.routine_pic = QtGui.QPixmap('./RoutinePic/AS24_'+str(int(float(Dri_ID)))+'_'+str(int(float(Date))) +
-                                             '_'+str(int(float(Time)))+'.png')  # 车型问题没定义好   待解决 2017/9/30
+            self.routine_pic = QtGui.QPixmap(
+                './RoutinePic/AS24_' + str(int(float(Dri_ID))) + '_' + str(int(float(Date))) +
+                '_' + str(int(float(Time))) + '.png')  # 车型问题没定义好   待解决 2017/9/30
             self.scene.addPixmap(self.routine_pic)
             self.graphicsView.setScene(self.scene)
         except:
@@ -207,6 +224,7 @@ class Main_process(QtCore.QThread):  # 务必不要继承主窗口，并在线�
 
     Message_Signal = QtCore.pyqtSignal(str)
     Message_Finish = QtCore.pyqtSignal(str)
+    Message_Process = QtCore.pyqtSignal(int)
     Message_Data = QtCore.pyqtSignal(list)
 
     def __init__(self, filepath, DBC_path='', Car_path='', Driver_path='', Save_name='', Process_type='input_data'):
@@ -237,10 +255,8 @@ class Main_process(QtCore.QThread):  # 务必不要继承主窗口，并在线�
             while k:
                 try:
                     mes = message.__next__()  # generator [消息,总任务数]
-                    # self.progressBar.setValue(int(k / mes[1]) * 100)
-                    # self.progressBar.show()
-                    # self.statusbar.showMessage('测试数据导入' + str(k))
                     self.Message_Signal.emit("测试数据 " + mes[0][0] + "导入中……")
+                    self.Message_Process.emit(int(k / mes[1] * 100))
                     k = k + 1
                 except:
                     self.Message_Signal.emit("导入完成……")
@@ -254,6 +270,14 @@ class Main_process(QtCore.QThread):  # 务必不要继承主窗口，并在线�
             self.out_putdata = data_process(self.file_path, self.Save_name)
             self.Message_Signal.emit("计算完成！")
             self.Message_Data.emit(self.out_putdata)
+
+
+# class MenuButton(QtWidgets.QPushButton):
+#     def __init__(self, parent=None):
+#         super(MenuButton, self).__init__(parent)
+#         self.createContextMenu()
+#     def createContextMenu(self):
+#         self.setContextMenuPolicy()
 
 
 if __name__ == '__main__':
