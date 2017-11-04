@@ -52,7 +52,6 @@ class LoginDlg(QMainWindow, Ui_MainWindow):
         self.filepath_DBC = './DBC_index.csv'  # 默认值
         self.filepath_Car = './Car_index.csv'
         self.filepath_Driver = './Driver_index.csv'
-
         pass
         pass
         # -------------------------------- 回调函数------------------------------------------
@@ -271,6 +270,14 @@ class Main_process(QtCore.QThread):  # 务必不要继承主窗口，并在线�
             self.out_putdata = data_process(self.file_path, self.Save_name)
             self.Message_Signal.emit("计算完成！")
             self.Message_Data.emit(self.out_putdata)
+
+
+# class MenuButton(QtWidgets.QPushButton):
+#     def __init__(self, parent=None):
+#         super(MenuButton, self).__init__(parent)
+#         self.createContextMenu()
+#     def createContextMenu(self):
+#         self.setContextMenuPolicy()
 
 
 if __name__ == '__main__':
