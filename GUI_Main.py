@@ -13,15 +13,11 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 from test_ui import Ui_MainWindow  # 界面与逻辑分离
 from Calculation_Functions import *  # 算法逻辑
 from SG_ReadFile import *
-from matplotlib.backends.backend_qt5agg import FigureCanvasQTAgg as FigureCanvas
-from matplotlib.figure import Figure
-from mpl_toolkits.mplot3d import Axes3D
+
 import sys
 import warnings
 import ctypes
-import matplotlib
 
-matplotlib.use("Qt5Agg")
 
 try:
     temp1 = ctypes.windll.LoadLibrary('DLL\\Qt5Core.dll')
@@ -48,6 +44,7 @@ class LoginDlg(QMainWindow, Ui_MainWindow):
     def __init__(self, parent=None):
         super(LoginDlg, self).__init__(parent)
         self.setupUi(self)
+
         self.menu_InputData.triggered.connect(self.open_data)  # 继承图形界面的主菜单Menu_plot的QAction，绑定回调函数
         self.menu_CalData.triggered.connect(self.cal_data)
         self.open_DBC.clicked.connect(self.push_DBC_Index_file)
@@ -59,10 +56,14 @@ class LoginDlg(QMainWindow, Ui_MainWindow):
         # self.Input_SysGain_data.clicked.connect(lambda: self.combobox_index_refresh(['af41', '2fds']))
         self.Input_SysGain_data.clicked.connect(self.load_sysgain_data)
         self.SysGain_cal.clicked.connect(self.sysgain_cal)
+        self.Add_to_compare.clicked.connect(self.add_to_compare)
+
+
         self.filepath_fulldata = './AS24_predict_data.csv'
         self.filepath_DBC = './DBC_index.csv'  # 默认值
         self.filepath_Car = './Car_index.csv'
         self.filepath_Driver = './Driver_index.csv'
+        self.filepath_SgResult = ''
 
         self.createContextMenu_DatatableView()
 
@@ -289,16 +290,43 @@ class LoginDlg(QMainWindow, Ui_MainWindow):
         self.MainProcess_thread.Message_Finish.connect(self.show_ax_pictures)
         self.MainProcess_thread.start()
 
-
     def show_ax_pictures(self):
 
-        dr = MyFigureCanvas(width=6, height=4, plot_type='2d')
-        # dr.axes = self.MainProcess_thread.ax_holder
-        dr.test()
+        dr = MyFigureCanvas(width=7, height=5, plot_type='3d', data=self.MainProcess_thread.ax_holder_SG.accresponce.data,
+                            para1=self.MainProcess_thread.ax_holder_SG.accresponce.pedal_avg)
+        dr.plot_acc_response_()
+        # dr = self.MainProcess_thread.ax_holder_SG.accresponce
+        # dr.plot_acc_response()
         self.scene = QtWidgets.QGraphicsScene()
         self.scene.addWidget(dr)
         self.graphicsView_2.setScene(self.scene)
         self.graphicsView_2.show()
+
+        dr2 = MyFigureCanvas(width=2, height=2, plot_type='2d', data=self.MainProcess_thread.ax_holder_SG.launch.data)
+        dr2.plot_launch_()
+        self.scene = QtWidgets.QGraphicsScene()
+        self.scene.addWidget(dr2)
+        self.graphicsView_3.setScene(self.scene)
+        self.graphicsView_3.show()
+
+        dr3 = MyFigureCanvas(width=2, height=2, plot_type='2d', data=self.MainProcess_thread.ax_holder_SG.maxacc.xdata,
+                             para1=self.MainProcess_thread.ax_holder_SG.maxacc.ydata)
+        dr3.plot_max_acc_()
+        self.scene = QtWidgets.QGraphicsScene()
+        self.scene.addWidget(dr3)
+        self.graphicsView_4.setScene(self.scene)
+        self.graphicsView_4.show()
+
+        dr4 = MyFigureCanvas(width=2, height=2, plot_type='2d', data=self.MainProcess_thread.ax_holder_SG.pedalmap.data)
+        dr4.plot_pedal_map_()
+        self.scene = QtWidgets.QGraphicsScene()
+        self.scene.addWidget(dr4)
+        self.graphicsView_7.setScene(self.scene)
+        self.graphicsView_7.show()
+
+    # ---------------------------- Compare -----------------------------------------
+    def add_to_compare(self):
+        self.plainTextEdit_6.setPlainText()
 
 
 class MainProcess(QtCore.QThread):  # 务必不要继承主窗口，并在线程里面更改主窗口的界面，会莫名其妙的出问题
@@ -360,35 +388,16 @@ class MainProcess(QtCore.QThread):  # 务必不要继承主窗口，并在线程
         elif self.Process_type == 'cal_data':
             self.out_putdata = data_process(self.file_path, self.Save_name)
             self.Message_Data.emit(self.out_putdata)
+            self.Message_Finish.emit("计算完成！")
 
         elif self.Process_type == 'input_sysgain_data':
             self.out_putdata = readfile_new(self.file_path)
             self.Message_Data.emit(self.out_putdata)
+            self.Message_Finish.emit("导入完成！")
 
         elif self.Process_type == 'cal_SG_data':
-            pass
-            # self.ax_holder = main_(self.file_path, self.Data_Socket)  # Data_Socket装载备选字节
-
-        self.Message_Finish.emit("计算完成！")
-
-
-class MyFigureCanvas(FigureCanvas):
-
-    def __init__(self, parent=None, width=10, height=10, dpi=100, plot_type='2d'):
-        fig = Figure(figsize=(width, height), dpi=100)
-        super(MyFigureCanvas, self).__init__(fig)
-        # FigureCanvas.__init__(self, fig)  # 初始化父类   堆栈溢出问题！
-        # self.setParent(parent)
-        if plot_type == '2d':
-            self.axes = fig.add_subplot(111)
-        elif plot_type == '3d':
-            self.axes = fig.add_subplot(111, projection='3d')
-
-    def test(self):
-        x = [1, 2, 3]
-        y = [2, 3, 5]
-        z = [2, 1, 4]
-        self.axes.scatter(x, y, z)
+            self.ax_holder_SG = main_(self.file_path)  # Data_Socket装载备选字节  self.Data_Socket
+            self.Message_Finish.emit("导入完成！")
 
 
 if __name__ == '__main__':
