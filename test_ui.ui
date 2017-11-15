@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1243</width>
-    <height>793</height>
+    <width>1486</width>
+    <height>906</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -39,7 +39,7 @@
        <enum>QTabWidget::Triangular</enum>
       </property>
       <property name="currentIndex">
-       <number>1</number>
+       <number>0</number>
       </property>
       <property name="elideMode">
        <enum>Qt::ElideNone</enum>
@@ -56,8 +56,8 @@
          <rect>
           <x>0</x>
           <y>0</y>
-          <width>1051</width>
-          <height>561</height>
+          <width>1371</width>
+          <height>781</height>
          </rect>
         </property>
         <layout class="QVBoxLayout" name="verticalLayout_1">
@@ -410,8 +410,8 @@
          <rect>
           <x>10</x>
           <y>10</y>
-          <width>1131</width>
-          <height>651</height>
+          <width>1401</width>
+          <height>771</height>
          </rect>
         </property>
         <property name="tabPosition">
@@ -431,9 +431,9 @@
           <property name="geometry">
            <rect>
             <x>330</x>
-            <y>50</y>
-            <width>631</width>
-            <height>591</height>
+            <y>40</y>
+            <width>1021</width>
+            <height>721</height>
            </rect>
           </property>
           <property name="title">
@@ -444,46 +444,46 @@
             <rect>
              <x>30</x>
              <y>20</y>
-             <width>261</width>
-             <height>221</height>
+             <width>821</width>
+             <height>421</height>
             </rect>
            </property>
           </widget>
           <widget class="QGraphicsView" name="graphicsView_3">
            <property name="geometry">
             <rect>
-             <x>330</x>
-             <y>20</y>
+             <x>30</x>
+             <y>450</y>
              <width>261</width>
-             <height>221</height>
+             <height>251</height>
             </rect>
            </property>
           </widget>
           <widget class="QGraphicsView" name="graphicsView_4">
            <property name="geometry">
             <rect>
-             <x>30</x>
-             <y>310</y>
+             <x>310</x>
+             <y>450</y>
              <width>261</width>
-             <height>221</height>
+             <height>251</height>
             </rect>
            </property>
           </widget>
           <widget class="QGraphicsView" name="graphicsView_7">
            <property name="geometry">
             <rect>
-             <x>330</x>
-             <y>310</y>
+             <x>590</x>
+             <y>450</y>
              <width>261</width>
-             <height>221</height>
+             <height>251</height>
             </rect>
            </property>
           </widget>
          </widget>
-         <widget class="QPushButton" name="Input_Test_data">
+         <widget class="QPushButton" name="Input_SysGain_data">
           <property name="geometry">
            <rect>
-            <x>510</x>
+            <x>710</x>
             <y>10</y>
             <width>41</width>
             <height>25</height>
@@ -545,7 +545,7 @@
            <rect>
             <x>100</x>
             <y>10</y>
-            <width>400</width>
+            <width>600</width>
             <height>21</height>
            </rect>
           </property>
@@ -555,18 +555,24 @@
             <verstretch>0</verstretch>
            </sizepolicy>
           </property>
+          <property name="minimumSize">
+           <size>
+            <width>600</width>
+            <height>10</height>
+           </size>
+          </property>
           <property name="maximumSize">
            <size>
-            <width>400</width>
+            <width>600</width>
             <height>30</height>
            </size>
           </property>
          </widget>
-         <widget class="QPushButton" name="pushButton_6">
+         <widget class="QPushButton" name="Add_to_compare">
           <property name="geometry">
            <rect>
-            <x>1040</x>
-            <y>590</y>
+            <x>1280</x>
+            <y>700</y>
             <width>41</width>
             <height>41</height>
            </rect>
@@ -581,8 +587,8 @@
          <widget class="QLabel" name="label_8">
           <property name="geometry">
            <rect>
-            <x>980</x>
-            <y>600</y>
+            <x>1220</x>
+            <y>710</y>
             <width>100</width>
             <height>20</height>
            </rect>
@@ -613,9 +619,9 @@
           <property name="geometry">
            <rect>
             <x>29</x>
-            <y>50</y>
+            <y>40</y>
             <width>281</width>
-            <height>591</height>
+            <height>721</height>
            </rect>
           </property>
           <property name="title">
@@ -627,7 +633,7 @@
              <x>20</x>
              <y>20</y>
              <width>241</width>
-             <height>441</height>
+             <height>466</height>
             </rect>
            </property>
            <layout class="QGridLayout" name="gridLayout_4">
@@ -689,7 +695,7 @@
                </widget>
               </item>
               <item>
-               <widget class="QComboBox" name="comboBox">
+               <widget class="QComboBox" name="comboBox_1">
                 <property name="font">
                  <font>
                   <pointsize>10</pointsize>
@@ -922,7 +928,7 @@
                  </font>
                 </property>
                 <property name="text">
-                 <string>油门</string>
+                 <string>发动机转速(rpm)</string>
                 </property>
                </widget>
               </item>
@@ -943,7 +949,7 @@
            <property name="geometry">
             <rect>
              <x>20</x>
-             <y>550</y>
+             <y>560</y>
              <width>100</width>
              <height>20</height>
             </rect>
@@ -974,7 +980,7 @@
            <property name="geometry">
             <rect>
              <x>20</x>
-             <y>520</y>
+             <y>530</y>
              <width>100</width>
              <height>20</height>
             </rect>
@@ -1005,7 +1011,7 @@
            <property name="geometry">
             <rect>
              <x>90</x>
-             <y>550</y>
+             <y>560</y>
              <width>171</width>
              <height>21</height>
             </rect>
@@ -1022,7 +1028,7 @@ p, li { white-space: pre-wrap; }
            <property name="geometry">
             <rect>
              <x>90</x>
-             <y>520</y>
+             <y>530</y>
              <width>171</width>
              <height>21</height>
             </rect>
@@ -1039,7 +1045,7 @@ p, li { white-space: pre-wrap; }
            <property name="geometry">
             <rect>
              <x>20</x>
-             <y>480</y>
+             <y>490</y>
              <width>237</width>
              <height>30</height>
             </rect>
@@ -1071,20 +1077,614 @@ p, li { white-space: pre-wrap; }
             <string>附加输入：</string>
            </property>
           </widget>
-          <zorder>gridLayoutWidget</zorder>
-          <zorder></zorder>
-          <zorder></zorder>
-          <zorder>label_19</zorder>
-          <zorder>label_18</zorder>
-          <zorder>textEdit_2</zorder>
-          <zorder>textEdit</zorder>
-          <zorder>label_20</zorder>
+          <widget class="QPushButton" name="SysGain_cal">
+           <property name="geometry">
+            <rect>
+             <x>40</x>
+             <y>600</y>
+             <width>211</width>
+             <height>71</height>
+            </rect>
+           </property>
+           <property name="font">
+            <font>
+             <family>Microsoft YaHei</family>
+             <pointsize>18</pointsize>
+            </font>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">QPushButton{border-image: url(./Image/RunIcon.png);}
+</string>
+           </property>
+           <property name="text">
+            <string>    计  算</string>
+           </property>
+          </widget>
          </widget>
         </widget>
         <widget class="QWidget" name="tab_2">
          <attribute name="title">
           <string>CVT</string>
          </attribute>
+         <widget class="QGroupBox" name="groupBox_5">
+          <property name="geometry">
+           <rect>
+            <x>30</x>
+            <y>50</y>
+            <width>281</width>
+            <height>681</height>
+           </rect>
+          </property>
+          <property name="title">
+           <string>配置</string>
+          </property>
+          <widget class="QWidget" name="gridLayoutWidget_2">
+           <property name="geometry">
+            <rect>
+             <x>20</x>
+             <y>20</y>
+             <width>241</width>
+             <height>520</height>
+            </rect>
+           </property>
+           <layout class="QGridLayout" name="gridLayout_6">
+            <item row="1" column="0">
+             <layout class="QVBoxLayout" name="verticalLayout_7">
+              <item>
+               <widget class="QLabel" name="label_30">
+                <property name="minimumSize">
+                 <size>
+                  <width>100</width>
+                  <height>30</height>
+                 </size>
+                </property>
+                <property name="maximumSize">
+                 <size>
+                  <width>400</width>
+                  <height>30</height>
+                 </size>
+                </property>
+                <property name="font">
+                 <font>
+                  <family>Microsoft YaHei</family>
+                  <pointsize>13</pointsize>
+                  <weight>75</weight>
+                  <bold>true</bold>
+                 </font>
+                </property>
+                <property name="layoutDirection">
+                 <enum>Qt::LeftToRight</enum>
+                </property>
+                <property name="text">
+                 <string>字段选择：</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QLabel" name="label_31">
+                <property name="minimumSize">
+                 <size>
+                  <width>100</width>
+                  <height>20</height>
+                 </size>
+                </property>
+                <property name="maximumSize">
+                 <size>
+                  <width>60</width>
+                  <height>20</height>
+                 </size>
+                </property>
+                <property name="font">
+                 <font>
+                  <family>Microsoft YaHei</family>
+                  <pointsize>10</pointsize>
+                 </font>
+                </property>
+                <property name="text">
+                 <string>车速(km/h)</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QComboBox" name="comboBox_17">
+                <property name="font">
+                 <font>
+                  <pointsize>10</pointsize>
+                 </font>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QLabel" name="label_32">
+                <property name="minimumSize">
+                 <size>
+                  <width>100</width>
+                  <height>20</height>
+                 </size>
+                </property>
+                <property name="maximumSize">
+                 <size>
+                  <width>60</width>
+                  <height>20</height>
+                 </size>
+                </property>
+                <property name="font">
+                 <font>
+                  <family>Microsoft YaHei</family>
+                  <pointsize>10</pointsize>
+                 </font>
+                </property>
+                <property name="text">
+                 <string>油门(-)</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QComboBox" name="comboBox_18">
+                <property name="font">
+                 <font>
+                  <pointsize>10</pointsize>
+                 </font>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QLabel" name="label_33">
+                <property name="minimumSize">
+                 <size>
+                  <width>100</width>
+                  <height>20</height>
+                 </size>
+                </property>
+                <property name="maximumSize">
+                 <size>
+                  <width>60</width>
+                  <height>20</height>
+                 </size>
+                </property>
+                <property name="font">
+                 <font>
+                  <family>Microsoft YaHei</family>
+                  <pointsize>10</pointsize>
+                 </font>
+                </property>
+                <property name="text">
+                 <string>加速度(g)</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QComboBox" name="comboBox_19">
+                <property name="font">
+                 <font>
+                  <pointsize>10</pointsize>
+                 </font>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QLabel" name="label_34">
+                <property name="minimumSize">
+                 <size>
+                  <width>100</width>
+                  <height>20</height>
+                 </size>
+                </property>
+                <property name="maximumSize">
+                 <size>
+                  <width>60</width>
+                  <height>20</height>
+                 </size>
+                </property>
+                <property name="font">
+                 <font>
+                  <family>Microsoft YaHei</family>
+                  <pointsize>10</pointsize>
+                 </font>
+                </property>
+                <property name="text">
+                 <string>档位(-)</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QComboBox" name="comboBox_20">
+                <property name="font">
+                 <font>
+                  <pointsize>10</pointsize>
+                 </font>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QLabel" name="label_35">
+                <property name="minimumSize">
+                 <size>
+                  <width>100</width>
+                  <height>20</height>
+                 </size>
+                </property>
+                <property name="maximumSize">
+                 <size>
+                  <width>60</width>
+                  <height>20</height>
+                 </size>
+                </property>
+                <property name="font">
+                 <font>
+                  <family>Microsoft YaHei</family>
+                  <pointsize>10</pointsize>
+                 </font>
+                </property>
+                <property name="text">
+                 <string>时间(s)</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QComboBox" name="comboBox_21">
+                <property name="font">
+                 <font>
+                  <pointsize>10</pointsize>
+                 </font>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QLabel" name="label_36">
+                <property name="minimumSize">
+                 <size>
+                  <width>100</width>
+                  <height>20</height>
+                 </size>
+                </property>
+                <property name="maximumSize">
+                 <size>
+                  <width>60</width>
+                  <height>20</height>
+                 </size>
+                </property>
+                <property name="font">
+                 <font>
+                  <family>Microsoft YaHei</family>
+                  <pointsize>10</pointsize>
+                 </font>
+                </property>
+                <property name="text">
+                 <string>扭矩(N.m)</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QComboBox" name="comboBox_22">
+                <property name="font">
+                 <font>
+                  <pointsize>10</pointsize>
+                 </font>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QLabel" name="label_37">
+                <property name="minimumSize">
+                 <size>
+                  <width>100</width>
+                  <height>20</height>
+                 </size>
+                </property>
+                <property name="maximumSize">
+                 <size>
+                  <width>60</width>
+                  <height>20</height>
+                 </size>
+                </property>
+                <property name="font">
+                 <font>
+                  <family>Microsoft YaHei</family>
+                  <pointsize>10</pointsize>
+                 </font>
+                </property>
+                <property name="text">
+                 <string>油耗(ul/s)</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QComboBox" name="comboBox_23">
+                <property name="font">
+                 <font>
+                  <pointsize>10</pointsize>
+                 </font>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QLabel" name="label_38">
+                <property name="minimumSize">
+                 <size>
+                  <width>100</width>
+                  <height>20</height>
+                 </size>
+                </property>
+                <property name="maximumSize">
+                 <size>
+                  <width>60</width>
+                  <height>20</height>
+                 </size>
+                </property>
+                <property name="font">
+                 <font>
+                  <family>Microsoft YaHei</family>
+                  <pointsize>10</pointsize>
+                 </font>
+                </property>
+                <property name="text">
+                 <string>发动机转速(rpm)</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QComboBox" name="comboBox_24">
+                <property name="font">
+                 <font>
+                  <pointsize>10</pointsize>
+                 </font>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QLabel" name="label_43">
+                <property name="minimumSize">
+                 <size>
+                  <width>100</width>
+                  <height>20</height>
+                 </size>
+                </property>
+                <property name="maximumSize">
+                 <size>
+                  <width>60</width>
+                  <height>20</height>
+                 </size>
+                </property>
+                <property name="font">
+                 <font>
+                  <family>Microsoft YaHei</family>
+                  <pointsize>10</pointsize>
+                 </font>
+                </property>
+                <property name="text">
+                 <string>涡轮转速(rpm)</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QComboBox" name="comboBox_25">
+                <property name="font">
+                 <font>
+                  <pointsize>10</pointsize>
+                 </font>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </item>
+           </layout>
+          </widget>
+          <widget class="QLabel" name="label_39">
+           <property name="geometry">
+            <rect>
+             <x>20</x>
+             <y>620</y>
+             <width>100</width>
+             <height>20</height>
+            </rect>
+           </property>
+           <property name="minimumSize">
+            <size>
+             <width>100</width>
+             <height>20</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>60</width>
+             <height>20</height>
+            </size>
+           </property>
+           <property name="font">
+            <font>
+             <family>Microsoft YaHei</family>
+             <pointsize>10</pointsize>
+            </font>
+           </property>
+           <property name="text">
+            <string>踏板信号：</string>
+           </property>
+          </widget>
+          <widget class="QLabel" name="label_40">
+           <property name="geometry">
+            <rect>
+             <x>20</x>
+             <y>590</y>
+             <width>100</width>
+             <height>20</height>
+            </rect>
+           </property>
+           <property name="minimumSize">
+            <size>
+             <width>100</width>
+             <height>20</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>60</width>
+             <height>20</height>
+            </size>
+           </property>
+           <property name="font">
+            <font>
+             <family>Microsoft YaHei</family>
+             <pointsize>10</pointsize>
+            </font>
+           </property>
+           <property name="text">
+            <string>稳态车速：</string>
+           </property>
+          </widget>
+          <widget class="QTextEdit" name="textEdit_3">
+           <property name="geometry">
+            <rect>
+             <x>90</x>
+             <y>620</y>
+             <width>171</width>
+             <height>21</height>
+            </rect>
+           </property>
+           <property name="html">
+            <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'MS Shell Dlg 2'; font-size:8.25pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;输入踏板信号，以空格为间隔&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+           </property>
+          </widget>
+          <widget class="QTextEdit" name="textEdit_4">
+           <property name="geometry">
+            <rect>
+             <x>90</x>
+             <y>590</y>
+             <width>171</width>
+             <height>21</height>
+            </rect>
+           </property>
+           <property name="html">
+            <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'MS Shell Dlg 2'; font-size:8.25pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;输入稳态车速，以空格为间隔&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+           </property>
+          </widget>
+          <widget class="QLabel" name="label_41">
+           <property name="geometry">
+            <rect>
+             <x>20</x>
+             <y>550</y>
+             <width>237</width>
+             <height>30</height>
+            </rect>
+           </property>
+           <property name="minimumSize">
+            <size>
+             <width>100</width>
+             <height>30</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>400</width>
+             <height>30</height>
+            </size>
+           </property>
+           <property name="font">
+            <font>
+             <family>Microsoft YaHei</family>
+             <pointsize>13</pointsize>
+             <weight>75</weight>
+             <bold>true</bold>
+            </font>
+           </property>
+           <property name="layoutDirection">
+            <enum>Qt::LeftToRight</enum>
+           </property>
+           <property name="text">
+            <string>附加输入：</string>
+           </property>
+          </widget>
+         </widget>
+         <widget class="QPushButton" name="Input_Test_data_4">
+          <property name="geometry">
+           <rect>
+            <x>510</x>
+            <y>10</y>
+            <width>41</width>
+            <height>25</height>
+           </rect>
+          </property>
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="minimumSize">
+           <size>
+            <width>40</width>
+            <height>25</height>
+           </size>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">QPushButton{border-image: url(./Image/file.png);}
+</string>
+          </property>
+          <property name="text">
+           <string/>
+          </property>
+         </widget>
+         <widget class="QPlainTextEdit" name="plainTextEdit_8">
+          <property name="geometry">
+           <rect>
+            <x>100</x>
+            <y>10</y>
+            <width>400</width>
+            <height>21</height>
+           </rect>
+          </property>
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Fixed" vsizetype="Expanding">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>400</width>
+            <height>30</height>
+           </size>
+          </property>
+         </widget>
+         <widget class="QLabel" name="label_42">
+          <property name="geometry">
+           <rect>
+            <x>10</x>
+            <y>10</y>
+            <width>100</width>
+            <height>20</height>
+           </rect>
+          </property>
+          <property name="minimumSize">
+           <size>
+            <width>100</width>
+            <height>20</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>60</width>
+            <height>20</height>
+           </size>
+          </property>
+          <property name="font">
+           <font>
+            <family>Microsoft YaHei</family>
+            <pointsize>10</pointsize>
+           </font>
+          </property>
+          <property name="text">
+           <string>测试数据导入：</string>
+          </property>
+         </widget>
         </widget>
         <widget class="QWidget" name="tab_5">
          <attribute name="title">
@@ -1291,13 +1891,36 @@ p, li { white-space: pre-wrap; }
           </item>
          </layout>
         </widget>
+        <widget class="QPushButton" name="SysGain_cal_2">
+         <property name="geometry">
+          <rect>
+           <x>580</x>
+           <y>20</y>
+           <width>211</width>
+           <height>71</height>
+          </rect>
+         </property>
+         <property name="font">
+          <font>
+           <family>Microsoft YaHei</family>
+           <pointsize>18</pointsize>
+          </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QPushButton{border-image: url(./Image/RunIcon.png);}
+</string>
+         </property>
+         <property name="text">
+          <string>    对   比</string>
+         </property>
+        </widget>
        </widget>
        <widget class="QGroupBox" name="groupBox_4">
         <property name="geometry">
          <rect>
           <x>10</x>
           <y>210</y>
-          <width>901</width>
+          <width>1151</width>
           <height>451</height>
          </rect>
         </property>
@@ -1324,6 +1947,16 @@ p, li { white-space: pre-wrap; }
           </rect>
          </property>
         </widget>
+        <widget class="QGraphicsView" name="graphicsView_8">
+         <property name="geometry">
+          <rect>
+           <x>780</x>
+           <y>30</y>
+           <width>361</width>
+           <height>321</height>
+          </rect>
+         </property>
+        </widget>
        </widget>
       </widget>
      </widget>
@@ -1335,7 +1968,7 @@ p, li { white-space: pre-wrap; }
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>1243</width>
+     <width>1486</width>
      <height>23</height>
     </rect>
    </property>
@@ -1387,7 +2020,7 @@ p, li { white-space: pre-wrap; }
     <enum>LeftToolBarArea</enum>
    </attribute>
    <attribute name="toolBarBreak">
-    <bool>true</bool>
+    <bool>false</bool>
    </attribute>
    <addaction name="actionSystemGain"/>
    <addaction name="actionRide"/>
@@ -1499,7 +2132,7 @@ p, li { white-space: pre-wrap; }
   <tabstop>plainTextEdit_3</tabstop>
   <tabstop>plainTextEdit_4</tabstop>
   <tabstop>graphicsView</tabstop>
-  <tabstop>comboBox</tabstop>
+  <tabstop>comboBox_1</tabstop>
   <tabstop>comboBox_2</tabstop>
   <tabstop>comboBox_3</tabstop>
   <tabstop>comboBox_4</tabstop>
