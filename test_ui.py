@@ -2,12 +2,12 @@
 
 # Form implementation generated from reading ui file 'test_ui.ui'
 #
-# Created by: PyQt5 UI code generator 5.9
+# Created by: PyQt5 UI code generator 5.6
 #
 # WARNING! All changes made in this file will be lost!
 
 from PyQt5 import QtCore, QtGui, QtWidgets
-from IconSource import *
+# from IconSource import *
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
@@ -1004,3 +1004,4 @@ class Ui_MainWindow(object):
         self.actionRide.setShortcut(_translate("MainWindow", "F2"))
         self.actiontest_menu.setText(_translate("MainWindow", "test_menu"))
 
+import IconSource_rc
